@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm5m7dht4i1er"]
+
+[ext_resource type="Texture2D" uid="uid://bmbv78ue4cbe3" path="res://Assets/mc-tower-mob-basic.png" id="1_i3ouu"]
+[ext_resource type="Script" uid="uid://bpyjraq1ql87i" path="res://scenes/mc.gd" id="1_xl5kn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fk5n"]
+atlas = ExtResource("1_i3ouu")
+region = Rect2(0, 0, 149, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnw1p"]
+atlas = ExtResource("1_i3ouu")
+region = Rect2(149, 0, 149, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1vev"]
+atlas = ExtResource("1_i3ouu")
+region = Rect2(298, 0, 149, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na260"]
+atlas = ExtResource("1_i3ouu")
+region = Rect2(447, 0, 149, 208)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afwo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fk5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnw1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1vev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na260")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6nmr"]
+radius = 53.0094
+
+[node name="MC" type="CharacterBody2D"]
+position = Vector2(10, 16)
+motion_mode = 1
+script = ExtResource("1_xl5kn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 18)
+sprite_frames = SubResource("SpriteFrames_afwo6")
+frame_progress = 0.0876421
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_h6nmr")
